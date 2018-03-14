@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC 
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- hibernate dialect -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/library</property>
+		<property name="hibernate.connection.username">hasanth</property>
+		<property name="hibernate.connection.password">sista</property>
+		<property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+
+		<!-- Automatic schema creation (begin) === -->
+		<property name="hibernate.hbm2ddl.auto">none</property>
+
+		<!-- Simple memory-only cache -->
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+
+		<property name="show_sql">true</property>
+		
+		<mapping class="com.library.hasanth.entities.BookEntity"/>
+		<mapping class="com.library.hasanth.entities.AuthorEntity"/>
+		<mapping class="com.library.hasanth.entities.BookAuthorsEntity"/>
+		
+		<mapping class="com.library.hasanth.entities.AvailabilityEntity"/>
+		<mapping class="com.library.hasanth.entities.PersonEntity"/>
+		
+		<mapping class="com.library.hasanth.entities.BookLoansEntity"/>
+		<mapping class="com.library.hasanth.entities.BorrowerEntity"/>
+		<mapping class="com.library.hasanth.entities.FinesEntity"/>
+	</session-factory>
+	
+</hibernate-configuration>
